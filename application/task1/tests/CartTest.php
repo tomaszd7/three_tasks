@@ -10,7 +10,7 @@ use DealerGroup\Product;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
-class TestCart extends TestCase
+class CartTest extends TestCase
 {
 
     public function testAddProductNew()
@@ -93,8 +93,9 @@ class TestCart extends TestCase
             [
                 [[1.1, 2], [1.1, 5]], 7.7,
             ],
+            // question is if same product name with different price is same product or not?
             // this test showed that you may override price on product so it affects same products in Cart
-            // so we should change isSameProduct() in Item class to check both
+            // so we changed isSameProduct() in Item class to check both
             // name and price as product Identity
         ];
     }

@@ -76,9 +76,11 @@ class ItemTest extends TestCase
     {
         $productA = $this->getMockedProduct();
         $productA->method('getName')->willReturn('A');
+        $productA->method('getPrice')->willReturn(10);
 
         $productB = $this->getMockedProduct();
         $productB->method('getName')->willReturn('A');
+        $productB->method('getPrice')->willReturn(10);
 
         $item = new Item($productA, 1);
         $this->assertTrue($item->isSameProduct($productB));
@@ -89,9 +91,11 @@ class ItemTest extends TestCase
     {
         $productA = $this->getMockedProduct();
         $productA->method('getName')->willReturn('A');
+        $productA->method('getPrice')->willReturn(10);
 
         $productB = $this->getMockedProduct();
         $productB->method('getName')->willReturn('B');
+        $productB->method('getPrice')->willReturn(10);
 
         $item = new Item($productA, 1);
         $this->assertFalse($item->isSameProduct($productB));

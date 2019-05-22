@@ -6,6 +6,13 @@ namespace DealerGroup;
 use DealerGroup\Exception\RemoveItemException;
 use Webmozart\Assert\Assert;
 
+/**
+ * Class Item
+ *
+ * item uniqueness is with name and price together
+ *
+ * @package DealerGroup
+ */
 class Item
 {
 
@@ -62,7 +69,8 @@ class Item
      */
     public function isSameProduct(Product $productToCompare): bool
     {
-        return $this->product->getName() === $productToCompare->getName();
+        return $this->product->getName() === $productToCompare->getName() &&
+            $this->product->getPrice() === $productToCompare->getPrice();
     }
 
     /**
