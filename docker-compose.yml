@@ -7,6 +7,7 @@ services:
       container_name: tasks-mysql
       working_dir: /application
       volumes:
+# making task3 as root folder-
         - .:/application
         - ./data/:/var/lib/mysql
       environment:
@@ -22,7 +23,8 @@ services:
       container_name: tasks-webserver
       working_dir: /var/www
       volumes:
-          - ./application:/var/www
+# making task3 as root folder
+          - ./application/task3:/var/www
           - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
           - ./logs/nginx/:/var/log/nginx          
       ports:
@@ -33,5 +35,6 @@ services:
       container_name: tasks-php-fpm
       working_dir: /var/www
       volumes:
-        - ./application:/var/www
+# making task3 as root folder
+        - ./application/task3:/var/www
         - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.2/fpm/conf.d/99-overrides.ini
